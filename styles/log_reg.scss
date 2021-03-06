@@ -1,0 +1,16 @@
+.header-spacer {
+  height: 64px;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+div.login-buttons {
+  display: grid;
+  place-items: center;
+}
