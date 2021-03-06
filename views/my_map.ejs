@@ -1,11 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Login & Register Page</title>
-    <%- include('../partials/head'); %>
-  </head>
 
-  <body>
+<head>
+  <title>Home Page</title>
+  <%- include('../partials/head'); %>
+    <link rel="stylesheet" href="/styles/foot.css" type="text/css" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
+      async></script>
+
+</head>
+
+<body>
+
+  <div class="map placeholder">
+    <img src="https://www.howtogeek.com/wp-content/uploads/2021/01/google-maps-satellite.png" alt="image of map" />
+  </div>
+
+  <div id="map"></div>
 
 
-    </body>
+  <div class="toggles">
+    <div class="mdc-switch">
+      <div class="mdc-switch__track"></div>
+      <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb"></div>
+        <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" aria-checked="false">
+      </div>
+    </div>
+    <label for="basic-switch">off/on</label>
+    <div class="mdc-switch">
+      <div class="mdc-switch__track"></div>
+      <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb"></div>
+        <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" aria-checked="false">
+      </div>
+    </div>
+    <label for="basic-switch">off/on</label>
+    <div class="mdc-switch">
+      <div class="mdc-switch__track"></div>
+      <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb"></div>
+        <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" aria-checked="false">
+      </div>
+    </div>
+    <label for="basic-switch">off/on</label>
+    <div class="mdc-switch">
+      <div class="mdc-switch__track"></div>
+      <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb"></div>
+        <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" aria-checked="false">
+      </div>
+    </div>
+    <label for="basic-switch">off/on</label>
+    <div class="mdc-switch">
+      <div class="mdc-switch__track"></div>
+      <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb"></div>
+        <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" aria-checked="false">
+      </div>
+    </div>
+    <label for="basic-switch">off/on</label>
+  </div>
+
+  <h1>Hello World!</h1>
+
+
+
+
+
+
+</body>
+
+<body>
+  <%- include('../partials/foot'); %>
+</body>
+
+</html>

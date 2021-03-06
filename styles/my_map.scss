@@ -1,0 +1,50 @@
+// See: https://sass-lang.com/
+
+$color1: #4D85FA;
+$color2: #FA745A;
+$color3: #41DEFB;
+$color4: #FABA28;
+$color5: #34FAAA;
+
+$logoFont: 'Lobster', cursive;
+$mainFont: 'Roboto', sans-serif;
+
+html {
+  height: 100%;
+}
+
+// Logo
+span.mdc-top-app-bar__title {
+  display: flex;
+  font-family: $logoFont;
+  font-size: 2rem;
+  height: 75%;
+  width: 100%;
+}
+
+// Top bar
+.mdc-top-app-bar__row {
+  background-color: $color1;
+}
+
+section.mdc-top-app-bar__section--align-start {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: $color2;
+}
+
+.mdc-icon-button {
+  flex-direction: end;
+}
+
+#map {
+  position: fixed !important;
+  height: 50% !important;
+  width: 100% !important;
+}
