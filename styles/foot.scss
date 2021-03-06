@@ -25,14 +25,13 @@ $mainFont: 'Roboto', sans-serif;
 		padding: 14px 16px;
 		font-size: 14px;
 		&:hover {
-			background-color: $color1;
-			color: white;
+			background-color: white;
+			color: $color1;
 		}
 	}
 	a.active {
 		background-color: $color1;
     color: white;
-    font-size: large;
 
 	}
 }
