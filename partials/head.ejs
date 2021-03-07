@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap" rel="stylesheet">
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <meta name="google-signin-client_id" content="422451271758-udtr4g0o48gbdvff2tmrqr7ou8hlnb9j.apps.googleusercontent.com">
 
   </head>
 
@@ -21,6 +24,27 @@
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
           <span class="mdc-top-app-bar__title">Alfresco</span>
           <button onclick="signOut()" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Logout">logout</button>
+               
+<a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+      window.location.href = "/login";
+    });
+  }
+
+      function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+    }
+
+
+
+</script>
+
         </section>
     </header>
 
