@@ -1,5 +1,15 @@
 // @import 'layout'
 
+$color1: #4D85FA;
+$color2: #FA745A;
+$color3: #41DEFB;
+$color4: #FABA28;
+$color5: #34FAAA;
+
+$logoFont: 'Lobster', cursive;
+$mainFont: 'Roboto', sans-serif;
+
+
 .header-spacer {
   height: 64px;
 }
@@ -9,6 +19,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  font-family: $mainFont;
+  text-align: -webkit-center;
 }
 
 div.login-buttons {

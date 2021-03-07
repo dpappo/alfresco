@@ -15,21 +15,31 @@
 
 <div class="header-spacer"> </div>
 <main>
-</br> 
-</br>     
-</br>   
-</br>   
-  <div class="login-buttons">
-      <button class="btn btn-primary">Login</button>
-  <br>
-  <div class="g-signin2" data-onsuccess="onSignIn" onclick="location.href='/'"></div>
-<br>
-      <button class="btn btn-primary">
-       Register
-      </button>
+
+
+ <h1>Eat and drink outside, or as the Italians say, <i>Alfresco</i></h1>
+
+
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
 
 </main>
 
+<script>
+function onSignIn(googleUser) {
+  var id_token = googleUser.getAuthResponse().id_token;
+  console.log("id_token: ", id_token);
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  $('main').append("Hello " + profile.getName());
+  $('main').append("<img src=" + profile.getImageUrl() + ">");
+  window.location.href = "/";
+}
+
+</script>
 
   </div>
 </body>

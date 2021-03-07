@@ -7,7 +7,6 @@
 
 const express = require('express');
 const router  = express.Router();
-const app = express()
 
 
 
@@ -23,10 +22,6 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-  });
-
-  router.get("/login", (req, res) => {
-    res.render("log_reg");
   });
 
    return router;
