@@ -1,34 +1,15 @@
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
-    }
-  });;
-});
+/* eslint-disable func-style */
+// $(() => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/users"
+//   }).done((users) => {
+//     for(user of users) {
+//       $("<div>").text(user.name).appendTo($("body"));
+//     }
+//   });;
+// });
 
-mdc.ripple.MDCRipple.attachTo(document.querySelector('.foo-button'));
-
-
-//log out
-// const signOut = function() {
-//     var auth2 = gapi.auth2.getAuthInstance();
-//     auth2.signOut().then(function () {
-//       console.log('User signed out.');
-//     });
-
-//get user info
-// const onSignIn = function(googleUser) {
-//   var profile = googleUser.getBasicProfile();
-//   var id_token = googleUser.getAuthResponse().id_token;
-//   console.log(id_token);
-//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-//   console.log('Name: ' + profile.getName());
-//   console.log('Image URL: ' + profile.getImageUrl());
-//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-// }
 
 //maps!
 let map;
@@ -37,42 +18,42 @@ function initMap() {
     center: {lat: 43.6532, lng: -79.3832},
     zoom: 8
   });
-};
+  const marker = new google.maps.Marker({
+    position: { lat: 43.6532, lng: -79.3832 },
+    map: map,
+  });
+  const contentString = `
+  <h2 class="title">My Bar</h2><br>
+  <p class="description">This is where I like to drink</p><br>
+  <p class="phone">555-555-5555</p><br>
+  <img src="https://media-cdn.tripadvisor.com/media/photo-s/1a/02/f8/b9/graffiti-spot-bar-g-spot.jpg" class="image"/><br>
+  `;
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+  });
+  marker.addListener("click", () => {
+    infowindow.open(map, marker);
+  });
+  // $(".listings").append(infowindow);
+  const addMarker = (title, description, phone, imageURL, latLongObject) => {
+    const marker = new google.maps.Marker({
+      position: latLongObject,
+      map: map,
+    });
+    const contentString = `
+    <h2 class="title">${title}</h2><br>
+    <p class="description">${description}</p><br>
+    <p class="phone">${phone}</p><br>
+    <img src="${imageURL}" class="image"/><br>
+    `;
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
+    marker.addListener("click", () => {
+      infowindow.open(map, marker);
+    });
+  };
 
+  addMarker("second bar", "where I sometimes go", "123412312", "https://threebestrated.ca/images/StLouisBarGrill-RichmondHill-ON.jpeg", {lat: 45.5017, lng: -73.5673});
+}
 
-// /**
-//  * The Sign-In client object.
-//  */
-// var auth2;
-
-// /**
-//  * Initializes the Sign-In client.
-//  */
-// var initClient = function() {
-//     gapi.load('auth2', function(){
-//         /**
-//          * Retrieve the singleton for the GoogleAuth library and set up the
-//          * client.
-//          */
-//         auth2 = gapi.auth2.init({
-//             client_id: 'CLIENT_ID.apps.googleusercontent.com'
-//         });
-
-//         // Attach the click handler to the sign-in button
-//         auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
-//     });
-// };
-
-// /**
-//  * Handle successful sign-ins.
-//  */
-// var onSuccess = function(user) {
-//     console.log('Signed in as ' + user.getBasicProfile().getName());
-//  };
-
-// /**
-//  * Handle sign-in failures.
-//  */
-// var onFailure = function(error) {
-//     console.log(error);
-// };
