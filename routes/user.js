@@ -1,9 +1,8 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const app = express();
 
 module.exports = (db) => {
-
   router.get("/points", (req, res) => {
     res.render('my_points');
   });
@@ -16,6 +15,5 @@ module.exports = (db) => {
     res.render('profile');
   });
 
-
-   return router;
+  return router;
 };
