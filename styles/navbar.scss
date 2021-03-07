@@ -1,0 +1,42 @@
+// See: https://sass-lang.com/
+
+$color1: #4D85FA;
+$color2: #FA745A;
+$color3: #41DEFB;
+$color4: #FABA28;
+$color5: #34FAAA;
+
+$logoFont: 'Lobster', cursive;
+$mainFont: 'Roboto', sans-serif;
+
+
+.topbar {
+	overflow: hidden;
+	background-color: $color1;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	a {
+		float: left;
+		display: block;
+    color: #f2f2f2;
+    font-size: xx-large;
+    text-align: center;
+    font-family: $logoFont;
+		padding: 14px 16px;
+		text-decoration: none;
+		&:hover {
+			background: white;
+			color: $color1;
+		}
+	}
+}
+.main {
+	margin-top: 30px;
+}
+
+.topbar button {
+  float: right;
+  margin-top: .75em;
+  margin-right: 1em;
+}

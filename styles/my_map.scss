@@ -13,38 +13,52 @@ html {
   height: 100%;
 }
 
-// Logo
-span.mdc-top-app-bar__title {
-  display: flex;
-  font-family: $logoFont;
-  font-size: 2rem;
-  height: 75%;
-  width: 100%;
-}
-
-// Top bar
-.mdc-top-app-bar__row {
-  background-color: $color1;
-}
-
-section.mdc-top-app-bar__section--align-start {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 body {
   display: flex;
   flex-direction: column;
   background-color: $color2;
 }
 
-.mdc-icon-button {
-  flex-direction: end;
-}
 
 #map {
-  position: fixed !important;
+  position: absolute;
   height: 50% !important;
   width: 100% !important;
+  margin-top: 4em;
+}
+
+
+
+article {
+  display: flex;
+  flex-direction: row;
+  border: 4px solid #FFFFFF;
+  border-radius: 25px;
+  padding: 1em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  margin-top: 25em;
+  word-wrap: break-word;
+
+}
+
+.favorite p{
+  
+
+
+}
+
+.minimap {
+  align-self: flex-end;
+}
+
+.minimap img {
+  height: 200px;
+  width: 300px;
+  border-radius: 25px;
+  margin-right: 2em;
+  margin-left: 250px;
+
+  
 }

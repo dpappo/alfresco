@@ -1,0 +1,18 @@
+// @import 'layout'
+
+.header-spacer {
+  height: 64px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+div.login-buttons {
+  display: grid;
+  place-items: center;
+}
+

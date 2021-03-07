@@ -5,6 +5,9 @@
   <title>Home Page</title>
   <%- include('../partials/head'); %>
     <link rel="stylesheet" href="/styles/foot.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/my_map.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
       async></script>
@@ -12,22 +15,16 @@
 </head>
 
 <body>
-
-  <div class="map placeholder">
-    <img src="https://www.howtogeek.com/wp-content/uploads/2021/01/google-maps-satellite.png" alt="image of map" />
-  </div>
-
   <div id="map"></div>
-
-  <h1>My Maps</h1>
-  <section>
-  <div class='favorite'>
-    <div>Title</div>
-    <div>Description</div>
-    <div>Phone</div>
-    <div><img src="https://www.mytechguys.ca/wp-content/uploads/2017/03/google-maps-new-interface1.jpg" alt="location"></div>
-  </div>
-  </section>
+<section>
+  <article class='favorite'>
+    
+    <p>Title</p>
+    <p>Description</p>
+    <p>Phone</p>
+    <div class ='minimap'><img src="https://www.ecoi.net/en/file/thumb/2034940.jpg" alt="location"></div>
+  </article>
+  </section> 
 
 
 
