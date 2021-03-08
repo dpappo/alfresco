@@ -2,13 +2,13 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -47,13 +47,61 @@ app.use('/login', login(db));
 
 
 // Note: mount other resources here, using the same pattern above
-
+const cookieSession = require("cookie-session");
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
+const { checkUserByEmail, showAllUsers, addUser, userLogin } = require('./public/scripts/dbQuery');
+
 app.get("/", (req, res) => {
-  res.render("index");
+  if (req.session.user_id === null) {
+    res.redirect("/login")
+  } else {
+    res.render("index");
+  }
+});
+
+app.get('/login/:id', (req, res) => {
+  req.session.user_id = req.params.id;
+  res.redirect('/');
+});
+
+app.post("/login/log", (req, res) => {
+  const { email, password } = req.body;
+
+  userLogin(email, password)
+    .then(user => {
+
+      if (!user) {
+        res.send({ error: "error" });
+        return;
+      }
+      console.log(user.id);
+      req.session.user_id = user.id;
+      console.log(req.session.user_id);
+      res.redirect("/");
+
+    })
+    .catch(e => res.send(e));
+});
+
+app.post("/login/register", (req, res) => {
+  const user = req.body
+  addUser(user)
+  req.session.user_id = user.id
+  res.redirect("/");
+});
+
+app.post("/logout", (req, res) => {
+  console.log(req.session.user_id);
+  req.session.user_id = null;
+  res.redirect("/login/");
 });
 
 

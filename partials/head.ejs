@@ -15,7 +15,9 @@
 
 <div class="topbar">
   <a href="#home">Alfresco</a>
-  <button type="button" class="btn btn-primary" onclick="signOut();">Logout</button>
+  <form method="POST" action="/logout">
+  <button class="btn btn-primary">Logout</button>
+</form>
 </div>
 
 
@@ -24,7 +26,7 @@
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
           <span class="mdc-top-app-bar__title">Alfresco</span>
           <button onclick="signOut()" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Logout">logout</button>
-               
+
 <a href="#" onclick="signOut();">Sign out</a>
 <script>
   function signOut() {

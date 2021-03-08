@@ -1,13 +1,8 @@
-const express = require('express');
-const router  = express.Router();
-const app = express()
-const { checkUserByEmail, showAllUsers, addUser, login} = require('../public/scripts/dbQuery');
-const cookieSession = require('cookie-session');
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['7f69fa85-caec-4d9c-acd7-eebdccb368d5', 'f13b4d38-41c4-46d3-9ef6-8836d03cd8eb'],
-}));
+const { checkUserByEmail, showAllUsers, addUser, userLogin} = require('../public/scripts/dbQuery');
+const express = require('express');
+const app = express()
+const router  = express.Router();
 
 
 module.exports = (db) => {
@@ -16,29 +11,30 @@ module.exports = (db) => {
     res.render('log_reg');
   });
 
-  router.post("/register", (req, res) =>{
+  /*router.post("/register", (req, res) =>{
  const user = req.body
  addUser(user)
-  });
+  }); */
 
-  router.post("/log", (req, res) => {
+  /*router.post("/log", (req, res) => {
     const {email, password} = req.body;
-    login(email, password)
+
+    userLogin(email, password)
     .then(user => {
 
       if(!user) {
         res.send({error: "error"});
         return;
-      } else {
-        //req.session.user_id = user.id;
-      res.redirect("/");
       }
+console.log(user.id);
+console.log(req.s)
+
+req.session.user_id = req.body.id
+     res.redirect("/");
+
     })
     //.catch(e => res.send(e));
-  });
-
-
-
+  }); */
 
    return router;
 };

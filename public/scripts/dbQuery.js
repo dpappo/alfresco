@@ -28,7 +28,7 @@ db.query(`Insert INTO users(name, email, password)
     .catch(err => console.log('error'));
 };
 
-const login = function(email, password) {
+const userLogin = function(email, password) {
   return checkUserByEmail(email)
   .then(user => {
     if(password === user.password) {
@@ -39,4 +39,4 @@ const login = function(email, password) {
 
 }
 
-module.exports = {showAllUsers, checkUserByEmail, addUser, login}
+module.exports = {showAllUsers, checkUserByEmail, addUser, userLogin}
