@@ -21,11 +21,23 @@
 
 
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <form class="form-block_reg" action="/login/register" method="POST">
+    <input class="form-control" type="text" name="email" placeholder="email:" style="width: 300px; margin: 1em">
+    <input class="form-control" type="text" name="name" placeholder="name:" style="width: 300px; margin: 1em">
+    <input class="form-control" type="password" name="password" placeholder="password:" style="width: 300px; margin: 1em">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
+<form class="form-block_log" action="/login/log" method="POST">
+  <input class="form-control" type="text" name="email" placeholder="email:" style="width: 300px; margin: 1em">
+  <input class="form-control" type="password" name="password" placeholder="password:" style="width: 300px; margin: 1em">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 </main>
 
 <script>
+
 function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
   console.log("id_token: ", id_token);
@@ -36,7 +48,7 @@ function onSignIn(googleUser) {
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   $('main').append("Hello " + profile.getName());
   $('main').append("<img src=" + profile.getImageUrl() + ">");
-  window.location.href = "/";
+  //window.location.href = "/";
 }
 
 </script>
