@@ -38,8 +38,18 @@ const widgetsRoutes = require("./routes/widgets");
 const user = require("./routes/user");
 const login = require("./routes/login_register")
 
+
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+const cookieSession = require("cookie-session");
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
+
+
+
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/user', user(db));
@@ -47,17 +57,13 @@ app.use('/login', login(db));
 
 
 // Note: mount other resources here, using the same pattern above
-const cookieSession = require("cookie-session");
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key2']
-}));
+
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-const { checkUserByEmail, showAllUsers, addUser, userLogin } = require('./public/scripts/dbQuery');
+const { checkUserByEmail, showAllUsers, addUser, userLogin, addPoint } = require('./public/scripts/dbQuery');
 
 app.get("/", (req, res) => {
   if (req.session.user_id === null) {
@@ -67,7 +73,13 @@ app.get("/", (req, res) => {
   }
 });
 
-app.get('/login/:id', (req, res) => {
+app.post("/logout", (req, res) => {
+  console.log(req.session.user_id);
+  req.session.user_id = null;
+  res.redirect("/login/");
+});
+
+/* app.get('/login/:id', (req, res) => {
   req.session.user_id = req.params.id;
   res.redirect('/');
 });
@@ -103,6 +115,14 @@ app.post("/logout", (req, res) => {
   req.session.user_id = null;
   res.redirect("/login/");
 });
+
+
+/*app.post("/user/addpoint", (req, res) => {
+  console.log('Body Info:', req.body)
+  const point = req.body;
+  const user = req.session.user_id;
+  addPoint(point, user);
+}); */
 
 
 

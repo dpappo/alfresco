@@ -7,24 +7,34 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     res.render('log_reg');
   });
-  /*router.post("/register", (req, res) =>{
- const user = req.body
- addUser(user)
-  }); */
-  /*router.post("/log", (req, res) => {
-    const {email, password} = req.body;
+
+  router.post("/log", (req, res) => {
+    const { email, password } = req.body;
+
     userLogin(email, password)
-    .then(user => {
-      if(!user) {
-        res.send({error: "error"});
-        return;
-      }
-console.log(user.id);
-console.log(req.s)
-req.session.user_id = req.body.id
-     res.redirect("/");
-    })
-    //.catch(e => res.send(e));
-  }); */
+      .then(user => {
+
+        if (!user) {
+          res.send({ error: "error" });
+          return;
+        }
+        console.log(user.id);
+        req.session.user_id = user.id;
+        console.log(req.session.user_id);
+        res.redirect("/");
+
+      })
+      .catch(e => res.send(e));
+  });
+
+  router.post("/register", (req, res) => {
+    const user = req.body
+    addUser(user)
+    req.session.user_id = user.id
+    res.redirect("/");
+  });
+
+
+
    return router;
 };
