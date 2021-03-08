@@ -2,6 +2,7 @@ const { Pool } = require('pg');
 const dbParams = require('../../lib/db');
 const db = new Pool(dbParams);
 db.connect();
+const bcrypt = require('bcrypt');
 
 const showAllUsers = function() {
 return db.query('SELECT * FROM users')
@@ -12,11 +13,11 @@ return db.query('SELECT * FROM users')
 };
 
 
-const checkUserEmail = function(email) {
-  return db.query(`SELECT email
+const checkUserByEmail = function(email) {
+  return db.query(`SELECT *
   FROM users
   WHERE email = $1`, [email])
-  .then(res => res.rows[0].email)
+  .then(res => res.rows[0])
 }
 
 const addUser = function(user) {
@@ -27,4 +28,15 @@ db.query(`Insert INTO users(name, email, password)
     .catch(err => console.log('error'));
 };
 
-module.exports = {showAllUsers, checkUserEmail, addUser}
+const login = function(email, password) {
+  return checkUserByEmail(email)
+  .then(user => {
+    if(password === user.password) {
+      return user;
+    }
+    return null;
+  });
+
+}
+
+module.exports = {showAllUsers, checkUserByEmail, addUser, login}
