@@ -42,9 +42,8 @@ const login = require("./routes/login_register")
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-const loginRoute = require("./routes/login_register");
 app.use('/user', user(db));
-app.use(loginRoute);
+app.use('/login', login(db));
 
 
 // Note: mount other resources here, using the same pattern above
@@ -57,9 +56,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-/*app.get("/login", (req, res) => {
-  res.render("log_reg");
-}); */
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

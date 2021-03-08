@@ -1,15 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const app = express()
+const { checkUserEmail, showAllUsers, addUser} = require('../public/scripts/dbQuery');
 
 
-router.get("/login", (req, res) => {
-  res.render('log_reg');
-});
-
-router.get("/favorites", (req, res) => {
-  res.render('my_map');
-});
 
 module.exports = (db) => {
 
@@ -17,16 +11,19 @@ module.exports = (db) => {
     res.render('log_reg');
   });
 
+  router.post("/register", (req, res) =>{
+ const user = req.body
+ addUser(user)
+  });
+
+
+
+
    return router;
 };
 
 
 
 
-router.get("/profile", (req, res) => {
-  res.render('profile');
-});
 
-
-module.exports = router
 
