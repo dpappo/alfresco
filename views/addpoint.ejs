@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="/styles/foot.css" type="text/css" />
     <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
     <link rel="stylesheet" href="/styles/addpoint.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous"></script>
 </head>
 <form method='post' action='/user/addpoint'>
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
     <input type="title" name ="title" class="form-control" id="titleinput" placeholder="Title">
   </div>
-  <div class="form-group">
+  <div class="form-group address">
     <label for="exampleFormControlInput1">Address</label>
     <input type="address" name ="address" class="form-control" id="addressinput" placeholder="Address">
+    <div class="address-insert"></div>
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Description</label>
@@ -29,6 +31,10 @@
     <label for="exampleFormControlInput1">Image</label>
     <input type="text" name ="imageurl" class="form-control" id="image" placeholder="imageURL">
   </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Latitude/Longitude</label>
+    <input type="text" name ="latlong" class="form-control" id="latlong" readonly placeholder="...">
+  </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
@@ -36,5 +42,6 @@
 
     <%- include('../partials/foot'); %>
 
+    <script type="text/javascript" src="/scripts/geocode.js"></script>
 
 </html>

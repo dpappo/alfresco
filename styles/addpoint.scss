@@ -16,3 +16,10 @@ form {
   font-family: $mainFont;
   ;
 }
+
+li {
+  &:hover {
+    background-color: $color2;
+    cursor: pointer;
+  }
+}
