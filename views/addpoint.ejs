@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+  <%- include('../partials/head'); %>
+    <link rel="stylesheet" href="/styles/foot.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/addpoint.css" type="text/css" />
+</head>
+<form method='post' action='/user/addpoint'>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="title" name ="title" class="form-control" id="titleinput" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Address</label>
+    <input type="address" name ="address" class="form-control" id="addressinput" placeholder="Address">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" name ="description"  id="descriptioninput" placeholder="Tell me more about this place" rows="2"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Phone</label>
+    <input type="address" name ="phone" class="form-control" id="phoneinput" placeholder="Phone Number">
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Image</label>
+    <input type="text" name ="imageurl" class="form-control" id="image" placeholder="imageURL">
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+    <%- include('../partials/foot'); %>
+
+
+</html>
