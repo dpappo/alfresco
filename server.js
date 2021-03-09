@@ -63,15 +63,32 @@ app.use('/login', login(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-const { checkUserByEmail, showAllUsers, addUser, userLogin, addPoint } = require('./public/scripts/dbQuery');
+const { checkUserByEmail, showAllUsers, addUser, userLogin, addPoint, getMarkersFromDB} = require('./public/scripts/dbQuery');
 
-app.get("/", (req, res) => {
+
+app.get("/", async (req, res) => {
   if (req.session.user_id === null) {
     res.redirect("/login")
   } else {
-    res.render("index");
+    const markers = await getMarkersFromDB();
+    console.log(markers);
+    const templateVars = { coords: markers }
+    res.render("index", templateVars)
+
   }
 });
+/* try {
+   const markers = await getMarkersFromDB()
+   if (markers) {
+     //console.log('marker:', markers);
+    displayMarkers(markers);
+   }
+ } catch (error) {
+   console.log('error:', error);
+   }
+ }
+
+}); */
 
 app.post("/logout", (req, res) => {
   console.log(req.session.user_id);

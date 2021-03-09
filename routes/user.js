@@ -23,6 +23,10 @@ module.exports = (db) => {
     res.render('addpoint');
   });
 
+  router.get("/mypoint", (req, res) => {
+    res.render("my_points");
+  })
+
    router.post("/addpoint", (req, res) => {
     console.log('Body Info:', req.body)
     console.log(req.session);
