@@ -70,6 +70,18 @@ module.exports = (db) => {
 
   })
 
+    router.get("/editpoint", (req, res) => {
+    res.render('/editpoint');
+  });
+
+    router.post("/editpoint", (req, res) => {
+    const point = req.body;
+    const user = req.session.user_id;
+    addPoint(point, user);
+    res.redirect("/my_points");
+
+  })
+
 
 
 

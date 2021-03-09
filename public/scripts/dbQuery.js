@@ -91,8 +91,20 @@ const getMyMarkers = function(user) {
     .then(res => res.rows)
     .catch(err => console.log('error'));
 }
-
-
+//user/edit/:pointID
+const editPoint = function (point, userID, pointID) {
+  db.query(`UPDATE locations
+  SET description = $1,
+  SET title = $2,
+  SET address = $3.
+  SET phone = $4,
+  SET image = $5
+  SET long = $6
+  SET lat = $7
+  WHERE locations.id = $8;`, [userID, point.description, point.title, point.address, point.phone, point.imageurl, point.long, point.lat, pointID])
+    .then(res => res.rows[0])
+    .catch(err => console.log('error:', err));
+}
 
 
 
