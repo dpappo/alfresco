@@ -44,7 +44,22 @@
         }).addTo(mymap);
         <% if(coords !== undefined) { %>
       <% for (let cord of coords) { %>
-          L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap);
+          L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`
+        <%= cord.title %> <br>
+        <%= cord.description %> <br>
+        <%= cord.phone %> <br>
+        <img class="marker-image" src="<%= cord.image %>" alt="<%= cord.title %>"> <br>
+        <button type="button" method="post" action="/user/favorite" class="btn btn-outline-success <%= cord.id %>">Edit</button>
+      `).openPopup().on('click',function(evt){
+        $("button.<%= cord.id %>").click(function(){
+          window.location.href = "/user/editpoint/<%= cord.locations_id %>";
+
+            $( ".leaflet-popup-content > button" ).removeClass( "btn-outline-success" );
+            $( ".leaflet-popup-content > button" ).addClass( "btn-success" );
+
+        });
+        //insertFavoriteToDB(<%= cord.id %>, <%= cord.user_id %>);
+  });
       <% } %>
       <% } else { %>
 
