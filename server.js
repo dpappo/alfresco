@@ -71,7 +71,6 @@ app.get("/", async (req, res) => {
     res.redirect("/login")
   } else {
     const markers = await getMarkersFromDB();
-    console.log(markers);
     const templateVars = { coords: markers }
     res.render("index", templateVars)
 

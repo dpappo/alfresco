@@ -18,13 +18,13 @@ const showAllUsers = function () {
 const checkUserByEmail = function (email) {
   return db.query(`SELECT *
   FROM users
-ERE email = $1`, [email])
+  WHERE email = $1`, [email])
     .then(res => res.rows[0])
 };
 
 const addUser = function (user) {
   db.query(`Insert INTO users(name, email, password)
-    VALUES($, $2, $3)
+    VALUES($1, $2, $3)
     returning *;`, [user.name, user.email, user.password])
     .then(res => res.rows[0])
     .catch(err => console.log('error'));
