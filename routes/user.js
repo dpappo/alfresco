@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-const { addPoint, getMarkersFromDB, getFavoriteMarkers, addFavorite, removeFavorite} = require('../public/scripts/dbQuery');
+const { addPoint, getMarkersFromDB, getFavoriteMarkers, addFavorite, removeFavorite, getMyMarkers} = require('../public/scripts/dbQuery');
 
 
 
@@ -31,9 +31,17 @@ module.exports = (db) => {
     res.render('addpoint');
   });
 
-  router.get("/mypoint", (req, res) => {
-    res.render("my_points");
-  })
+  router.get("/mypoint", async (req, res) => {
+    if (req.session.user_id === null) {
+      res.redirect("/login")
+    } else {
+      const currentUser = req.session.user_id;
+      const markers = await getMyMarkers(currentUser);
+      const templateVars = { coords: markers}
+      res.render("my_points", templateVars)
+
+    }
+  });
 
    router.post("/addpoint", (req, res) => {
     const point = req.body;
