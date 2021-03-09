@@ -5,35 +5,54 @@
   <title>Home Page</title>
   <%- include('../partials/head'); %>
     <link rel="stylesheet" href="/styles/foot.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/my_map.css" type="text/css" />
     <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
-      async></script>
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
 </head>
 
-<body>
-  <div id="map"></div>
-<section>
-  <article class='favorite'>
 
-    <p>Title</p>
-    <p>Description</p>
-    <p>Phone</p>
-    <div class ='minimap'><img src="https://www.ecoi.net/en/file/thumb/2034940.jpg" alt="location"></div>
-  </article>
+<body>
+  <div id="mapid"></div>
+
+  <section class="listings">
+
+    <article>
+      <ul>
+
+      </ul>
+    </article>
   </section>
 
 
-
-
-
-</body>
-
-<body>
   <%- include('../partials/foot'); %>
+    <% var test=coords %>
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin="">
+        </script>
+
+      <script>
+         var mymap = L.map('mapid').setView([56.1304, -106.3468], 4);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: 'mapbox/streets-v11',
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken: 'pk.eyJ1IjoiZHBhcHBvIiwiYSI6ImNrbTEwNmI4dzAxeXMyeGp2c2VyajBwa20ifQ.U6SgB3CiYWT8xwZSv0eYsQ'
+        }).addTo(mymap);
+        <% if(coords !== undefined) { %>
+      <% for (let cord of coords) { %>
+          L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap);
+      <% } %>
+      <% } else { %>
+
+      <% } %>
+      //var popup = cntower.bindPopup('<b>Hello world!</b><br />I am a  big tower (not in khazikstan).');
+      //popup.openPopup();
+      </script>
+
 </body>
 
 </html>

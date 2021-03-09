@@ -70,6 +70,7 @@ app.get("/", async (req, res) => {
   if (req.session.user_id === null) {
     res.redirect("/login")
   } else {
+    console.log(req.session.user_id);
     const markers = await getMarkersFromDB();
     const templateVars = { coords: markers }
     res.render("index", templateVars)
