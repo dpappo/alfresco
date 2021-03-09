@@ -38,7 +38,8 @@ $("#addressinput").on("input", $.debounce(300, function(evt) {
   
   $(".mytarget").click(function(){
     $("#titleinput").val($(this).attr("data-title"))
-    $("#latlong").val($(this).attr("data-lat") + ", " + $(this).attr("data-long"))
+    $("#lat").val($(this).attr("data-lat"))
+    $("#long").val($(this).attr("data-long"))
 
   })
   })
