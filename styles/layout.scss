@@ -17,14 +17,17 @@ body {
   display: flex;
   flex-direction: column;
   background-color: $color2;
+  .vsc-initialized {
+    display: block;
+  }
 }
 
 
 #mapid {
   position: absolute;
-  height: 80% !important;
+  height: 85.2% !important;
   width: 100% !important;
-  margin-top: 4em;
+  margin-top: 6%;
 }
 
 .listings{

@@ -16,6 +16,7 @@ $mainFont: 'Roboto', sans-serif;
 	position: fixed;
 	top: 0;
 	width: 100%;
+  height: 8%;
 	a {
 		float: left;
 		display: block;
@@ -39,4 +40,9 @@ $mainFont: 'Roboto', sans-serif;
   float: right;
   margin-top: .75em;
   margin-right: 1em;
+  background-color: $color2;
+  &:hover {
+    background-color: $color4;
+    //color: $color5;
+  }
 }
