@@ -7,6 +7,7 @@ const geocodeToList = function(geocodeResult) {
     insertString += `<li data-lat="${geocodeResult[i].latitude}" 
     data-long="${geocodeResult[i].longitude}" 
     data-title="${geocodeResult[i].name}" 
+    data-label="${geocodeResult[i].label}" 
     class="mytarget ${i}">
     
     ${geocodeResult[i].label}
@@ -48,6 +49,7 @@ $("#addressinput").on("input", $.debounce(300, function(evt) {
     $("#titleinput").val($(this).attr("data-title"))
     $("#lat").val($(this).attr("data-lat"))
     $("#long").val($(this).attr("data-long"))
+    $("#addressinput").val($(this).attr("data-label"))
     $(".address-insert").empty();
 
   })
