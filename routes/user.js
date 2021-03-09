@@ -36,7 +36,6 @@ module.exports = (db) => {
   })
 
   router.post("/favorite", (req, res) => {
-    console.log("entering favorite post")
     const point = req.body.locations_id;
     // console.log("point: ", point)
     const user = req.session.user_id;
