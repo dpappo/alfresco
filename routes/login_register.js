@@ -30,7 +30,7 @@ module.exports = (db) => {
   router.post("/register", (req, res) => {
     const user = req.body
     addUser(user)
-    req.session.user_id = user.id
+    req.session.user_id = user.id;
     res.redirect("/");
   });
 
