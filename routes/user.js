@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-const { addPoint, getMarkersFromDB, getFavoriteMarkers } = require('../public/scripts/dbQuery');
+const { addPoint, getMarkersFromDB, getFavoriteMarkers, addFavorite} = require('../public/scripts/dbQuery');
 
 
 
