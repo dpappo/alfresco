@@ -48,6 +48,14 @@ const addPoint = function (point, userID) {
     .catch(err => console.log('error:', err));
 }
 
+const addFavorite = function (point, userID) {
+  db.query(`Insert INTO favorites(user_id, locations_id)
+  VALUES($1, $2)
+  returning *;`, [userID, point])
+    .then(res => res.rows[0])
+    .catch(err => console.log('error:', err));
+}
+
 const getMarkersFromDB = function () {
   return db.query(`SELECT *
   FROM locations;`)
@@ -75,7 +83,7 @@ const getFavoriteMarkers = function (user) {
 
 
 
-module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, getMarkersFromDB, getFavoriteMarkers}
+module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, getMarkersFromDB, getFavoriteMarkers}
 
 
 /*

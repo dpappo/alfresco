@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-const { addPoint } = require('../public/scripts/dbQuery');
+const { addPoint, addFavorite } = require('../public/scripts/dbQuery');
 
 
 
@@ -31,6 +31,16 @@ module.exports = (db) => {
     const point = req.body;
     const user = req.session.user_id;
     addPoint(point, user);
+    res.redirect("/");
+
+  })
+
+  router.post("/favorite", (req, res) => {
+    console.log("entering favorite post")
+    const point = req.body.locations_id;
+    // console.log("point: ", point)
+    const user = req.session.user_id;
+    addFavorite(point, user);
     res.redirect("/");
 
   })
