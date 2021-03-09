@@ -42,7 +42,7 @@
         accessToken: 'pk.eyJ1IjoiZHBhcHBvIiwiYSI6ImNrbTEwNmI4dzAxeXMyeGp2c2VyajBwa20ifQ.U6SgB3CiYWT8xwZSv0eYsQ'
       }).addTo(mymap);
       <% for(let cord of coords) { %>
-        L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap);
+        L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`<%= cord.title %> <br> <%= cord.description %> <br> <%= cord.phone %> <br> <img class="marker-image" src="<%= cord.image %>" alt="<%= cord.title %>">`).openPopup();
       <% } %>
       // L.marker([<%=coords[0].long%>, <%=coords[0].lat%> ]).addTo(mymap);
       //var cntower = L.marker([43.6426, -79.3871]).addTo(mymap);

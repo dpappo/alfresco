@@ -31,3 +31,7 @@ body {
   border: 2px solid black;
   margin-top: 25em;
 }
+
+img.marker-image {
+  max-width: -webkit-fill-available;
+}
