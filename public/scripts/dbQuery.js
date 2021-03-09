@@ -57,21 +57,18 @@ const getMarkersFromDB = function () {
     .catch(err => console.log(err));
 }
 
-const getFavoriteMarkers = function (user) {
+const getFavoriteMarkers = function(user) {
   return db.query(`SELECT *
   FROM locations
-  WHERE user_id = $1;`, [user])
+  JOIN favorites ON locations.id = locations_id
+  WHERE favorites.user_id = $1;`, [user])
     .then(res => res.rows)
     .catch(err => console.log('error'));
 }
 
-/*const displayMarkers = function(locations) {
 
-  console.log(locations);
-  for(location of locations) {
-    L.marker([location.long, location.lat]).addTo(mymap);
-  }
-} */
+
+
 
 
 
@@ -79,9 +76,28 @@ module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint,
 
 
 /*
-INSERT INTO locations (user_id, description, title, address, phone, image, long, lat)
-VALUES (37, 'asdasdasd', 'asdas', 'asdasd', 'asdasd', 'asdas', 43.0896, -79.0849);
+users
+
+INSERT INTO users (name, email, password)
+VALUES ('Adam', 'adam@gamil.com', 'test'),
+       ('Dan', 'dan@dan.com', 'test2'),
+       ('Jesse', 'jesse@jesse.com', 'test3'),
+       ('Christian', 'lost@lost.com', 'test4'),
+       ('Gary', 'gary@gary.com', 'test5');
+
+
+locations
 
 INSERT INTO locations (user_id, description, title, address, phone, image, long, lat)
 VALUES (37, 'asdasdaffsd', 'asddffdas', 'asdasX', 'asdasQ', 'asdddas', 49.2827, -123.1207)
+
+INSERT INTO favorites (user_id, locations_id)
+VALUES(13, 5);
+
+SELECT *
+  FROM locations
+  JOIN favorites ON locations.id = locations_id
+  WHERE favorites.user_id = 13;
+
+
 */

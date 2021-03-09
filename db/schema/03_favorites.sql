@@ -5,3 +5,5 @@ CREATE TABLE favorites (
     locations_id INTEGER REFERENCES locations(id) ON DELETE CASCADE
 
 );
+
+
