@@ -35,3 +35,7 @@ body {
 img.marker-image {
   max-width: -webkit-fill-available;
 }
+
+div.leaflet-popup-content {
+  display: grid;
+}
