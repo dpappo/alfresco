@@ -18,8 +18,20 @@ form {
 }
 
 li {
+  list-style-type:none;
+  border-style: solid;
+    border-radius: 10px;
+    border-color: $color4;
+    display: block;
+    width: fit-content;
+    padding: 3px;
   &:hover {
     background-color: $color2;
+    color: white;
     cursor: pointer;
   }
+}
+
+div.address-insert {
+  padding-top: 5px;
 }

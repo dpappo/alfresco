@@ -4,7 +4,15 @@ const geocodeToList = function(geocodeResult) {
   let insertString = ""
   console.log("geocodeResult: ", geocodeResult)
   for (let i = 0; i < geocodeResult.length; i++) {
-    insertString += `<li data-lat="${geocodeResult[i].latitude}" data-long="${geocodeResult[i].longitude}" data-title="${geocodeResult[i].name}" class="mytarget ${i}">${geocodeResult[i].label}</li>`
+    insertString += `<li data-lat="${geocodeResult[i].latitude}" 
+    data-long="${geocodeResult[i].longitude}" 
+    data-title="${geocodeResult[i].name}" 
+    class="mytarget ${i}">
+    
+    ${geocodeResult[i].label}
+
+    
+    </li>`
   }
 
   return insertString;
@@ -40,6 +48,7 @@ $("#addressinput").on("input", $.debounce(300, function(evt) {
     $("#titleinput").val($(this).attr("data-title"))
     $("#lat").val($(this).attr("data-lat"))
     $("#long").val($(this).attr("data-long"))
+    $(".address-insert").empty();
 
   })
   })
