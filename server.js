@@ -91,7 +91,7 @@ app.get("/", async (req, res) => {
 }); */
 
 app.post("/logout", (req, res) => {
-  console.log(req.session.user_id);
+  //console.log(req.session.user_id);
   req.session.user_id = null;
   res.redirect("/login/");
 });

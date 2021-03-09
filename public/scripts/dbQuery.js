@@ -41,11 +41,11 @@ const userLogin = function (email, password) {
 };
 
 const addPoint = function (point, userID) {
-  db.query(`Insert INTO locations(user_id, description, title, address, phone, image)
-  VALUES($1, $2, $3, $4, $5, $6)
-  returning *;`, [userID, point.description, point.title, point.address, point.phone, point.imageurl])
+  db.query(`Insert INTO locations(user_id, description, title, address, phone, image, long, lat)
+  VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+  returning *;`, [userID, point.description, point.title, point.address, point.phone, point.imageurl, point.long, point.lat])
     .then(res => res.rows[0])
-    .catch(err => console.log('error'));
+    .catch(err => console.log('error:', err));
 }
 
 const getMarkersFromDB = function () {
@@ -54,7 +54,7 @@ const getMarkersFromDB = function () {
     .then(res => {
       return res.rows;
     })
-    .catch(err => console.log('error'));
+    .catch(err => console.log(err));
 }
 
 const getFavoriteMarkers = function (user) {
