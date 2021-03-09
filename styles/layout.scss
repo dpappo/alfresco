@@ -22,7 +22,7 @@ body {
 
 #mapid {
   position: absolute;
-  height: 50% !important;
+  height: 80% !important;
   width: 100% !important;
   margin-top: 4em;
 }
@@ -30,4 +30,12 @@ body {
 .listings{
   border: 2px solid black;
   margin-top: 25em;
+}
+
+img.marker-image {
+  max-width: -webkit-fill-available;
+}
+
+div.leaflet-popup-content {
+  display: grid;
 }
