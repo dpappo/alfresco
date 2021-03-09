@@ -74,13 +74,22 @@ const getFavoriteMarkers = function(user) {
     .catch(err => console.log('error'));
 }
 
+const getMyMarkers = function(user) {
+  return db.query(`SELECT *
+  FROM locations
+  JOIN users ON users.id = locations.user_id
+  WHERE users.id = $1;`, [user])
+    .then(res => res.rows)
+    .catch(err => console.log('error'));
+}
 
 
 
 
 
 
-module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, getMarkersFromDB, getFavoriteMarkers}
+
+module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, getMarkersFromDB, getFavoriteMarkers, getMyMarkers}
 
 
 /*
@@ -107,5 +116,10 @@ SELECT *
   JOIN favorites ON locations.id = locations_id
   WHERE favorites.user_id = 13;
 
+
+  SELECT *
+  FROM locations
+  JOIN users ON users.id = user_id
+  WHERE users.id = 1;
 
 */
