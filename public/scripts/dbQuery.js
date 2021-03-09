@@ -56,6 +56,15 @@ const addFavorite = function (point, userID) {
     .catch(err => console.log('error:', err));
 }
 
+const removeFavorite = function (point, userID) {
+  console.log("in remove favorite")
+  db.query(`DELETE FROM favorites WHERE
+  user_id = $1 AND locations_id = $2
+  returning *;`, [userID, point])
+    .then(res => res.rows[0])
+    .catch(err => console.log('error:', err));
+}
+
 const getMarkersFromDB = function () {
   return db.query(`SELECT *
   FROM locations;`)
@@ -80,7 +89,7 @@ const getFavoriteMarkers = function(user) {
 
 
 
-module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, getMarkersFromDB, getFavoriteMarkers}
+module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, removeFavorite, getMarkersFromDB, getFavoriteMarkers}
 
 
 /*
