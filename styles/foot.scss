@@ -9,7 +9,7 @@ $color5: #34FAAA;
 $logoFont: 'Lobster', cursive;
 $mainFont: 'Roboto', sans-serif;
 
-.navbar {
+.footer {
   display: flex;
   justify-content: space-between;
 	background-color: $color1;
@@ -17,7 +17,7 @@ $mainFont: 'Roboto', sans-serif;
 	position: fixed;
 	bottom: 0;
   width: 100%;
-  height: 7%;
+  //height: 7%;
   font-family: $mainFont;
 	a {
     text-decoration: none;

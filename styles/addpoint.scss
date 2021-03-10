@@ -11,6 +11,7 @@ $mainFont: 'Roboto', sans-serif;
 
 form {
   width: 90%;
+  margin: auto;
   align-self: center;
   font-family: $mainFont;
 }
@@ -19,12 +20,13 @@ li {
   list-style-type:none;
   border-style: solid;
     border-radius: 10px;
-    border-color: $color4;
+    border-color: $color1;
     display: block;
     width: fit-content;
-    padding: 3px;
+    padding: 2px;
+    margin: 2px;
   &:hover {
-    background-color: red;
+    background-color: $color2;
     color: white;
     cursor: pointer;
   }
@@ -37,6 +39,8 @@ div.address-insert {
 #addsubmit {
   border-color: #007bff00;
   background-color: $color5;
+  width: 100%;
+  color: black;
   &:hover {
   animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);

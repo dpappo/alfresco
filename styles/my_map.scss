@@ -9,9 +9,9 @@ $color5: #34FAAA;
 $logoFont: 'Lobster', cursive;
 $mainFont: 'Roboto', sans-serif;
 
-html {
-  height: 100%;
-}
+// html {
+//   height: 100%;
+// }
 
 body {
   display: flex;
@@ -44,7 +44,7 @@ article {
 }
 
 .favorite p{
-  
+
 
 
 }
@@ -60,5 +60,10 @@ article {
   margin-right: 2em;
   margin-left: 250px;
 
-  
+
+}
+div.leaflet-popup-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }

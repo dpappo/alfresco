@@ -14,15 +14,6 @@
   <body>
     <div id="mapid"></div>
 
-    <section class="listings">
-
-      <article>
-        <ul>
-
-        </ul>
-      </article>
-    </section>
-
 
     <%- include('../partials/foot'); %>
     <% var test = coords %>
@@ -43,11 +34,11 @@
       }).addTo(mymap);
 
     mymap.locate({setView: true, maxZoom: 10});
-        
+
 
       <% for(let cord of coords) { %>
        L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`
-        <%= cord.title %> <br>
+        <div class="popup-title"><strong><%= cord.title %></strong></div>
         <%= cord.description %> <br>
         <%= cord.phone %> <br>
         <img class="marker-image" src="<%= cord.image %>" alt="<%= cord.title %>"> <br>
