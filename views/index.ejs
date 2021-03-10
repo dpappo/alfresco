@@ -41,8 +41,11 @@
         zoomOffset: -1,
         accessToken: 'pk.eyJ1IjoiZHBhcHBvIiwiYSI6ImNrbTEwNmI4dzAxeXMyeGp2c2VyajBwa20ifQ.U6SgB3CiYWT8xwZSv0eYsQ'
       }).addTo(mymap);
+
+        
+
       <% for(let cord of coords) { %>
-        L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`
+       L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`
         <%= cord.title %> <br>
         <%= cord.description %> <br>
         <%= cord.phone %> <br>
@@ -63,6 +66,19 @@
         });
         //insertFavoriteToDB(<%= cord.id %>, <%= cord.user_id %>);
   })
+
+  $("button.<%= cord.id %>").click(function(){
+          $.ajax({
+            method: "POST",
+            url: "/user/favorite",
+            data: { "locations_id": "<%= cord.id %>" }
+          })
+            .done(function( msg ) {
+            });
+            $( ".leaflet-popup-content > button" ).removeClass( "btn-outline-danger" );
+            $( ".leaflet-popup-content > button" ).addClass( "btn-danger" );
+
+        });
 
       <% } %>
       // L.marker([<%=coords[0].long%>, <%=coords[0].lat%> ]).addTo(mymap);

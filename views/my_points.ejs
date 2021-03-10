@@ -59,6 +59,15 @@
         });
         //insertFavoriteToDB(<%= cord.id %>, <%= cord.user_id %>);
   });
+
+$("button.<%= cord.id %>").click(function(){
+          window.location.href = "/user/editpoint/<%= cord.locations_id %>";
+
+            $( ".leaflet-popup-content > button" ).removeClass( "btn-outline-success" );
+            $( ".leaflet-popup-content > button" ).addClass( "btn-success" );
+
+        });
+
       <% } %>
       <% } else { %>
 

@@ -66,6 +66,22 @@
         });
         //insertFavoriteToDB(<%= cord.id %>, <%= cord.user_id %>);
   });
+
+  $("button.<%= cord.id %>").click(function(){
+          $.ajax({
+            method: "POST",
+            url: "/user/favorite/remove",
+            data: { "locations_id": "<%= cord.locations_id %>" }
+          })
+            .done(function( msg ) {
+              window.location.href = "/user/favorites";
+            });
+            $( ".leaflet-popup-content > button" ).removeClass( "btn-outline-danger" );
+            $( ".leaflet-popup-content > button" ).addClass( "btn-danger" );
+
+        });
+
+
       <% } %>
       <% } else { %>
 
