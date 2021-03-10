@@ -85,7 +85,8 @@ module.exports = (db) => {
     if (currentUser === ownerID) {
       const templateVars = {
         location: locationData[0],
-        locationID: id
+        locationID: id,
+        current: "edit"
       };
       res.render("editpoint", templateVars);
     } else {
