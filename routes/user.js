@@ -17,7 +17,7 @@ module.exports = (db) => {
     } else {
       const currentUser = req.session.user_id;
       const markers = await getFavoriteMarkers(currentUser);
-      const templateVars = { coords: markers }
+      const templateVars = { coords: markers, current: "fav" }
       res.render("my_map", templateVars)
 
     }
@@ -26,13 +26,14 @@ module.exports = (db) => {
   router.get("/profile", async(req, res) => {
     const ID = req.session.user_id;
     const userInfo =  await getUserByID(ID);
-    const templateVars = { user: userInfo };
+    const templateVars = { user: userInfo, current: "profile" };
 
     res.render('profile', templateVars);
   });
 
   router.get("/addpoint", (req, res) => {
-    res.render('addpoint');
+    const templateVars = {current: "add"}
+    res.render('addpoint', templateVars);
   });
 
   router.get("/mypoint", async (req, res) => {
@@ -42,7 +43,7 @@ module.exports = (db) => {
       const currentUser = req.session.user_id;
       const markers = await getMyMarkers(currentUser);
       console.log(markers);
-      const templateVars = { coords: markers }
+      const templateVars = { coords: markers, current: "mine" }
       res.render("my_points", templateVars)
 
     }

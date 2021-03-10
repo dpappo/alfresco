@@ -72,7 +72,8 @@ app.get("/", async (req, res) => {
   } else {
     console.log(req.session.user_id);
     const markers = await getMarkersFromDB();
-    const templateVars = { coords: markers }
+    const templateVars = { coords: markers,
+    current: "home" }
     res.render("index", templateVars)
 
   }
