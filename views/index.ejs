@@ -23,7 +23,7 @@
     </script>
 
     <script>
-      var mymap = L.map('mapid').setView([56.1304, -106.3468], 4);
+      var mymap = L.map('mapid').setView([43.6532, -79.3832], 10);
       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
@@ -41,7 +41,7 @@
        L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`
         <div class="popup-title"><strong><%= cord.title %></strong></div>
         <%= cord.description %> <br>
-        <%= cord.phone %> <br>
+        <a href="tel:<%= cord.phone %>"><%= cord.phone %></a> <br>
         <img class="marker-image" src="<%= cord.image %>" alt="<%= cord.title %>"> <br>
         <button type="button" method="post" action="/user/favorite" class="btn btn-outline-danger <%= cord.id %>">❤️</button>
       `).openPopup().on('click',function(evt){
