@@ -50,11 +50,29 @@
     </div>
   </div>
 
-  <button id =confirm type="submit" class="btn btn-primary">Confirm</button>
+
+  <div class="row">
+    <div class="col">
+
+
+  <button id =confirm type="submit" class="btn btn-primary edit">Confirm</button>
 </form>
-<br>
-<form method='POST' action='/user/editpoint/<%=locationID%>/delete'>
-  <button id =delete type="submit" class="btn btn-primary">Delete</button>
+
+    </div>
+
+    <div class="col">
+
+
+<form class="geocode" method='POST' action='/user/editpoint/<%=locationID%>/delete'>
+  <button id =delete type="submit" class="btn btn-primary edit">Delete</button>
+
+    </div>
+    </div>
+
+
+
+
+
 
 </form>
 
