@@ -3,6 +3,8 @@ const dbParams = require('../../lib/db');
 const db = new Pool(dbParams);
 db.connect();
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 
 
 
@@ -33,7 +35,7 @@ const checkUserByEmail = function (email) {
 const addUser = function (user) {
   db.query(`Insert INTO users(name, email, password)
     VALUES($1, $2, $3)
-    returning *;`, [user.name, user.email, user.password])
+    returning *;`, [user.name, user.email, bcrypt.hashSync(user.password, saltRounds)])
     .then(res => res.rows[0])
     .catch(err => console.log('error'));
 };
@@ -41,7 +43,7 @@ const addUser = function (user) {
 const userLogin = function (email, password) {
   return checkUserByEmail(email)
     .then(user => {
-      if (password === user.password) {
+      if (bcrypt.compareSync(password, user.password)) {
         return user;
       }
       return null;
