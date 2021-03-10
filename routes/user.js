@@ -54,7 +54,7 @@ module.exports = (db) => {
 
   router.post("/favorite", (req, res) => {
     const point = req.body.locations_id;
-    // console.log("point: ", point)
+    console.log("point: ", point)
     const user = req.session.user_id;
     addFavorite(point, user);
     res.redirect("/");
