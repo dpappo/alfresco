@@ -84,24 +84,32 @@ const getFavoriteMarkers = function(user) {
 }
 
 const getMyMarkers = function(user) {
-  return db.query(`SELECT *
+  return db.query(`SELECT locations.*
   FROM locations
   JOIN users ON users.id = locations.user_id
   WHERE users.id = $1;`, [user])
     .then(res => res.rows)
     .catch(err => console.log('error'));
 }
-//user/edit/:pointID
-const editPoint = function (point, userID, pointID) {
+
+const getLocationById = function(location) {
+  return db.query(`SELECT  *
+  FROM locations
+  WHERE locations.id= $1`, [location])
+    .then(res => res.rows)
+    .catch(err => console.log('error'));
+}
+
+const editPoint = function (point, pointID) {
   db.query(`UPDATE locations
-  SET description = $1,
-  SET title = $2,
-  SET address = $3.
-  SET phone = $4,
-  SET image = $5
-  SET long = $6
-  SET lat = $7
-  WHERE locations.id = $8;`, [userID, point.description, point.title, point.address, point.phone, point.imageurl, point.long, point.lat, pointID])
+  SET description = $1
+  ,title = $2
+  ,address = $3
+  ,phone = $4
+  ,image = $5
+  ,long = $6
+  ,lat = $7
+  WHERE locations.id = $8;`, [point.description, point.title, point.address, point.phone, point.imageurl, point.long, point.lat, pointID])
     .then(res => res.rows[0])
     .catch(err => console.log('error:', err));
 }
@@ -110,7 +118,7 @@ const editPoint = function (point, userID, pointID) {
 
 
 
-module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, removeFavorite, getMarkersFromDB, getFavoriteMarkers, getMyMarkers}
+module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, removeFavorite, getMarkersFromDB, getFavoriteMarkers, getMyMarkers, getLocationById, editPoint}
 
 
 /*
@@ -138,9 +146,19 @@ SELECT *
   WHERE favorites.user_id = 13;
 
 
-  SELECT *
+  SELECT locations.*
   FROM locations
   JOIN users ON users.id = user_id
   WHERE users.id = 1;
+
+UPDATE locations
+  SET description = 'update test'
+   ,title = 'Updoot'
+   ,address = '123 test st'
+   ,phone = 'Doot Phhone'
+   ,image = 'imgTEST.jpg'
+   ,long = 64.8255
+   ,lat = -124.8457
+  WHERE locations.id = 4;
 
 */

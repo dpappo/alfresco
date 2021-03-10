@@ -12,7 +12,7 @@
       crossorigin="anonymous"></script>
 </head>
 <h3>EDIT YOUR POINT</h3>
-<form method='post' action='/user/editpoint'>
+<form method='POST' action='/user/editpoint/<%=locationID%>/edit'>
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
     <input type="title" name="title" class="form-control" id="titleinput" placeholder="Title">
@@ -53,5 +53,18 @@
 <%- include('../partials/foot'); %>
 
   <script type="text/javascript" src="/scripts/geocode.js"></script>
+
+  <script>
+    $("input#titleinput").val("<%=location.title%>");
+    $("textarea#descriptioninput").val("<%=location.description%>");
+    $("input#addressinput").val("<%=location.address%>");
+    $("input#phoneinput").val("<%=location.phone%>");
+    $("input#image").val("<%=location.image%>");
+    $("input#long").val("<%=location.long%>");
+    $("input#lat").val("<%=location.lat%>");
+
+
+
+  </script>
 
 </html>
