@@ -42,10 +42,14 @@
           zoomOffset: -1,
           accessToken: 'pk.eyJ1IjoiZHBhcHBvIiwiYSI6ImNrbTEwNmI4dzAxeXMyeGp2c2VyajBwa20ifQ.U6SgB3CiYWT8xwZSv0eYsQ'
         }).addTo(mymap);
+
+        mymap.locate({setView: true, maxZoom: 10});
+
+
         <% if(coords !== undefined) { %>
       <% for (let cord of coords) { %>
           L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`
-        <%= cord.title %> <br>
+        <div class="popup-title"><strong><%= cord.title %></strong></div>
         <%= cord.description %> <br>
         <%= cord.phone %> <br>
         <img class="marker-image" src="<%= cord.image %>" alt="<%= cord.title %>"> <br>
@@ -66,6 +70,8 @@
         });
         //insertFavoriteToDB(<%= cord.id %>, <%= cord.user_id %>);
   });
+
+
 
   $("button.<%= cord.id %>").click(function(){
           $.ajax({
