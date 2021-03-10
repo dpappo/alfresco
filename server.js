@@ -33,7 +33,7 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
+
 const widgetsRoutes = require("./routes/widgets");
 const user = require("./routes/user");
 const login = require("./routes/login_register")
@@ -50,7 +50,7 @@ app.use(cookieSession({
 
 
 
-app.use("/api/users", usersRoutes(db));
+
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/user', user(db));
 app.use('/login', login(db));
@@ -78,18 +78,7 @@ app.get("/", async (req, res) => {
 
   }
 });
-/* try {
-   const markers = await getMarkersFromDB()
-   if (markers) {
-     //console.log('marker:', markers);
-    displayMarkers(markers);
-   }
- } catch (error) {
-   console.log('error:', error);
-   }
- }
 
-}); */
 
 app.post("/logout", (req, res) => {
   //console.log(req.session.user_id);
@@ -97,50 +86,6 @@ app.post("/logout", (req, res) => {
   res.redirect("/login/");
 });
 
-/* app.get('/login/:id', (req, res) => {
-  req.session.user_id = req.params.id;
-  res.redirect('/');
-});
-
-app.post("/login/log", (req, res) => {
-  const { email, password } = req.body;
-
-  userLogin(email, password)
-    .then(user => {
-
-      if (!user) {
-        res.send({ error: "error" });
-        return;
-      }
-      console.log(user.id);
-      req.session.user_id = user.id;
-      console.log(req.session.user_id);
-      res.redirect("/");
-
-    })
-    .catch(e => res.send(e));
-});
-
-app.post("/login/register", (req, res) => {
-  const user = req.body
-  addUser(user)
-  req.session.user_id = user.id
-  res.redirect("/");
-});
-
-app.post("/logout", (req, res) => {
-  console.log(req.session.user_id);
-  req.session.user_id = null;
-  res.redirect("/login/");
-});
-
-
-/*app.post("/user/addpoint", (req, res) => {
-  console.log('Body Info:', req.body)
-  const point = req.body;
-  const user = req.session.user_id;
-  addPoint(point, user);
-}); */
 
 
 

@@ -79,7 +79,9 @@ module.exports = (db) => {
   router.get("/editpoint/:locations_id", async (req, res) => {
     const id = req.params.locations_id;
     const locationData = await getLocationById(id);
-    console.log('location:', locationData)
+   // console.log('test:', locationData[0])
+    if(locationData[0] !== undefined) {
+    //console.log('location:', locationData)
     const currentUser = req.session.user_id;
     const ownerID = locationData[0].user_id;
     if (currentUser === ownerID) {
@@ -95,6 +97,12 @@ module.exports = (db) => {
         message: 'This is not your point to modify.'
       });
     }
+  } else {
+    res.render('error', {
+      status: 418,
+      message: 'This point does not exist.'
+    });
+  }
   });
 
   router.post("/editpoint/:locationID/edit", (req, res) => {
