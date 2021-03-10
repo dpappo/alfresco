@@ -1,0 +1,39 @@
+// See: https://sass-lang.com/
+
+$color1: #4D85FA;
+$color2: #FA745A;
+$color3: #41DEFB;
+$color4: #FABA28;
+$color5: #34FAAA;
+
+$logoFont: 'Lobster', cursive;
+$mainFont: 'Roboto', sans-serif;
+
+main {
+  text-align: center;
+  border: 2px solid #6c757d40;
+  margin-right: 2em;
+  margin-left: 2em;
+  padding-bottom: 2.5em;
+  padding-top: 1.5em;
+  border-radius: 2em;
+  background-color: #6c757d40;
+
+}
+
+#error1 {
+ font-family: $mainFont;
+ color: $color2;
+ font-size: xxx-large;
+}
+
+#error2 {
+  font-family: $mainFont;
+  font-size: x-large;
+}
+
+#return {
+  background-color: $color2;
+  color: black;
+  border: 2px solid #6c757d40;
+}

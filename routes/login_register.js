@@ -17,11 +17,15 @@ module.exports = (db) => {
   router.post("/log", (req, res) => {
     const { email, password } = req.body;
 
+
     userLogin(email, password)
       .then(user => {
 
         if (!user) {
-          res.send({ error: "error" });
+          res.render("error", {
+            status: 400,
+            message: 'This Email or Password is Incorrect... Please Try Again.'
+          });
           return;
         }
         console.log(user.id);
@@ -30,7 +34,11 @@ module.exports = (db) => {
         res.redirect("/");
 
       })
-      .catch(e => res.send(e));
+
+      .catch(e => res.render("error", {
+        status: 400,
+        message: 'This Email or Password is Incorrect... Please Try Again.'
+      }));
   });
 
   router.get("/register", (req, res) => {
@@ -41,13 +49,19 @@ module.exports = (db) => {
     }
   });
 
-  router.post("/register", (req, res) => {
-    const user = req.body
-    addUser(user)
-    res.redirect("/login");
+  router.post("/register", async (req, res) => {
+    const userAttempt = await checkUserByEmail(req.body.email)
+    if (userAttempt === undefined) {
+      const user = req.body
+      addUser(user)
+      res.redirect("/login");
+    } else {
+      res.render('error', {
+        status: 418,
+        message: 'This Email is Already in Our System. The server refuses the attempt to brew coffee with a teapot.'
+      });
+    }
   });
-
-
 
    return router;
 };

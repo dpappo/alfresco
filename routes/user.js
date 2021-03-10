@@ -79,12 +79,20 @@ module.exports = (db) => {
     const id = req.params.locations_id;
     const locationData = await getLocationById(id);
     console.log('location:', locationData)
-    console.log(locationData[0].title);
-    const templateVars = {
-      location: locationData[0],
-      locationID: id
-    };
-    res.render("editpoint", templateVars);
+    const currentUser = req.session.user_id;
+    const ownerID = locationData[0].user_id;
+    if (currentUser === ownerID) {
+      const templateVars = {
+        location: locationData[0],
+        locationID: id
+      };
+      res.render("editpoint", templateVars);
+    } else {
+      res.render('error', {
+        status: 418,
+        message: 'This is not your point to modify.'
+      });
+    }
   });
 
   router.post("/editpoint/:locationID/edit", (req, res) => {
