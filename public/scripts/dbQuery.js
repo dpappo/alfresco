@@ -114,11 +114,23 @@ const editPoint = function (point, pointID) {
     .catch(err => console.log('error:', err));
 }
 
+const deletePoint = function (point, userID) {
+  console.log("in delete function")
+  console.log("point:", point)
+  console.log("userID:", userID)
+  return db.query(`DELETE FROM locations
+  WHERE
+  user_id = $1 AND id = $2
+  returning *;`, [userID, point])
+    .then(res => res.rows[0])
+    .catch(err => console.log('error:', err));
+}
 
 
 
 
-module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, removeFavorite, getMarkersFromDB, getFavoriteMarkers, getMyMarkers, getLocationById, editPoint}
+
+module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, removeFavorite, getMarkersFromDB, getFavoriteMarkers, getMyMarkers, getLocationById, editPoint, deletePoint}
 
 
 /*

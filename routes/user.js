@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-const { addPoint, getMarkersFromDB, getFavoriteMarkers, addFavorite, removeFavorite, getMyMarkers, getLocationById, editPoint } = require('../public/scripts/dbQuery');
+const { addPoint, getMarkersFromDB, getFavoriteMarkers, addFavorite, removeFavorite, getMyMarkers, getLocationById, editPoint, deletePoint } = require('../public/scripts/dbQuery');
 
 
 
@@ -85,10 +85,23 @@ module.exports = (db) => {
 
   router.post("/editpoint/:locationID/edit", (req, res) => {
     const point = req.body;
+    console.log("editpoint body: ", req.body)
     const pointID = req.params.locationID;
     editPoint(point, pointID);
     res.redirect("/user/mypoint");
   });
+
+  router.post("/editpoint/:locationID/delete", (req, res) => {
+    console.log("in delete post")
+    const point = req.params.locationID;
+    //console.log("req.params", req.params)
+    // console.log("req", req)
+    const userID = req.session.user_id;
+    deletePoint(point, userID);
+    res.redirect("/user/mypoint");
+  });
+
+   
 
   //router.post("/editpoint", (req, res) => {
   //const point = req.body;
