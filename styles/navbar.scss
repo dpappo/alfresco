@@ -26,9 +26,13 @@ $mainFont: 'Roboto', sans-serif;
     font-family: $logoFont;
 		padding: 14px 16px;
 		text-decoration: none;
+    border-radius: 25px;
+    transition: 0.5s;
 		&:hover {
 			background: white;
 			color: $color1;
+      transition: 0.5s;
+
 		}
 	}
 }
