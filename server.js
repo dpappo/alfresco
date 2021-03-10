@@ -66,6 +66,7 @@ app.use('/login', login(db));
 const { checkUserByEmail, showAllUsers, addUser, userLogin, addPoint, getMarkersFromDB} = require('./public/scripts/dbQuery');
 
 
+
 app.get("/", async (req, res) => {
   if (req.session.user_id === null) {
     res.redirect("/login")

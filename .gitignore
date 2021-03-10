@@ -1,5 +1,6 @@
 node_modules/
 public/styles
+public/scripts/config.js
 .env
 *.log
 *.sqlite3
