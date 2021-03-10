@@ -9,39 +9,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw==" crossorigin="anonymous"></script>
 </head>
 </br>
-<form method='post' action='/user/addpoint'>
+<form class="geocode" method='post' action='/user/addpoint'>
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
-    <input type="title" name ="title" class="form-control" id="titleinput" placeholder="Title">
+    <input type="title" name ="title" class="form-control" id="titleinput" placeholder="Title" required>
   </div>
     <div class="address-insert"></div>
   <div class="form-group address">
     <label for="exampleFormControlInput1">Search for Address or Location Name</label>
-    <input type="address" name ="address" class="form-control" id="addressinput" placeholder="Address or Location Name">
+    <input type="address" name ="address" class="form-control" id="addressinput" placeholder="Address or Location Name" required>
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Description</label>
-    <textarea class="form-control" name ="description"  id="descriptioninput" placeholder="Tell me more about this place" rows="2"></textarea>
+    <textarea class="form-control" name ="description"  id="descriptioninput" placeholder="Tell me more about this place" rows="2" required></textarea>
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Phone</label>
-    <input type="address" name ="phone" class="form-control" id="phoneinput" placeholder="Phone Number">
+    <input type="address" name ="phone" class="form-control" id="phoneinput" placeholder="Phone Number" required>
   </div>
     <div class="form-group">
     <label for="exampleFormControlInput1">Image</label>
-    <input type="text" name ="imageurl" class="form-control" id="image" placeholder="imageURL">
+    <input type="text" name ="imageurl" class="form-control" id="image" placeholder="imageURL" required>
   </div>
     <div class="row">
     <div class="col">
     <div class="form-group">
     <label for="exampleFormControlInput1">Latitude</label>
-    <input type="text" name ="lat" class="form-control" id="lat" readonly placeholder="...">
+    <input type="text" name ="lat" class="form-control" id="lat" readonly placeholder="..." required>
     </div>
   </div>
     <div class="col">
     <div class="form-group">
     <label for="exampleFormControlInput1">Longitude</label>
-    <input type="text" name ="long" class="form-control" id="long" readonly placeholder="...">
+    <input type="text" name ="long" class="form-control" id="long" readonly placeholder="..." required>
   </div>
     </div>
   </div>

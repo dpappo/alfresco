@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <footer>
   <div class="footer">
-  
-    <a href="/" class="active"><i class="fas fa-home"></i> Home</a>
-    <a href="/user/favorites"><i class="fas fa-heart"></i> Favorites</a>
-    <a href="/user/addpoint"><i class="fas fa-plus"></i> Add</a>
-    <a href="/user/mypoint"><i class="fas fa-list-ul"></i> Mine</a>
-    <a href="/user/profile"><i class="fas fa-user"></i> Profile</a>
+    <a href="/" class="home <%= current === 'home' ? 'current-page' : '' %>"><i class="fas fa-home"></i> Home</a>
+    <a href="/user/favorites" class="fav <%= current === 'fav' ? 'current-page' : '' %>"><i class="fas fa-heart"></i> Favorites</a>
+    <a href="/user/addpoint" class="add <%= current === 'add' ? 'current-page' : '' %>"><i class="fas fa-plus"></i> Add</a>
+    <a href="/user/mypoint" class="mine <%= current === 'mine' ? 'current-page' : '' %>"><i class="fas fa-list-ul"></i> Mine</a>
+    <a href="/user/profile" class="profile <%= current === 'profile' ? 'current-page' : '' %>"><i class="fas fa-user"></i> Profile</a>
   </div>
 </footer>
 

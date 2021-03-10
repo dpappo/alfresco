@@ -10,8 +10,16 @@ $logoFont: 'Lobster', cursive;
 $mainFont: 'Roboto', sans-serif;
 
 
+form.geocode {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 25%;
+  align-self: center;
+  font-family: $mainFont;
+}
 form {
-  width:90%;
+  width: 90%;
+  margin: auto;
   align-self: center;
   font-family: $mainFont;
 }
@@ -96,4 +104,8 @@ div.address-insert {
   60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+button.edit {
+  width: 100%;
 }
