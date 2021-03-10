@@ -6,12 +6,12 @@
   <%- include('../partials/head'); %>
     <link rel="stylesheet" href="/styles/foot.css" type="text/css" />
     <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/addpoint.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/editpoint.css" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"
       integrity="sha512-JZSo0h5TONFYmyLMqp8k4oPhuo6yNk9mHM+FY50aBjpypfofqtEWsAgRDQm94ImLCzSaHeqNvYuD9382CEn2zw=="
       crossorigin="anonymous"></script>
 </head>
-<h3>EDIT YOUR POINT</h3>
+</br>
 <form method='POST' action='/user/editpoint/<%=locationID%>/edit'>
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
@@ -49,8 +49,10 @@
   </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Confirm</button>
-  <button type="submit" class="btn btn-primary">Delete</button>
+</br>
+</br>
+  <button id =confirm type="submit" class="btn btn-primary">Confirm</button>
+  <button id =delete type="submit" class="btn btn-primary">Delete</button>
 
 </form>
 
