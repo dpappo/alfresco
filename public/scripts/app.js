@@ -24,14 +24,3 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoiZHBhcHBvIiwiYSI6ImNrbTEwNmI4dzAxeXMyeGp2c2VyajBwa20ifQ.U6SgB3CiYWT8xwZSv0eYsQ'
 }).addTo(mymap);
-
-
-
-var cntower = L.marker([43.6426, -79.3871]).addTo(mymap);
-L.marker([44.001, -80.000]).addTo(mymap);
-var popup = cntower.bindPopup('<b>Hello world!</b><br />I am a  big tower (not in khazikstan).');
-popup.openPopup();
-
-
-
-
