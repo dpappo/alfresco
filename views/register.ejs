@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-    <title>Login & Register Page</title>
+    <title>Register Page</title>
     <%- include('../partials/loginhead'); %>
 <body>
 
@@ -24,13 +24,13 @@
  <h1>Eat and drink outside, or as the Italians say, <i>Alfresco</i></h1>
 
 
-<form class="form-block_log" action="/login/log" method="POST">
-  <input class="form-control" type="text" name="email" placeholder="email:" style="width: 300px; margin: 1em">
-  <input class="form-control" type="password" name="password" placeholder="password:" style="width: 300px; margin: 1em">
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-<h3> No account? Register <a href="/login/register">here!</a></h3>
+  <form class="form-block_reg" action="/login/register" method="POST">
+    <input class="form-control" type="text" name="email" placeholder="email:" style="width: 300px; margin: 1em">
+    <input class="form-control" type="text" name="name" placeholder="name:" style="width: 300px; margin: 1em">
+    <input class="form-control" type="password" name="password" placeholder="password:" style="width: 300px; margin: 1em">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <h3>Have an account already? Login <a href="/login">here!</a></h3>
 
 </main>
 </body>

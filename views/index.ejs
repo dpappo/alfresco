@@ -43,8 +43,8 @@
       }).addTo(mymap);
 
     mymap.locate({setView: true, maxZoom: 10});
-        
 
+    <% if(coords !== undefined) { %>
       <% for(let cord of coords) { %>
        L.marker([<%= cord.lat %>, <%= cord.long %> ]).addTo(mymap).bindPopup(`
         <%= cord.title %> <br>
@@ -80,6 +80,9 @@
             $( ".leaflet-popup-content > button" ).addClass( "btn-danger" );
 
         });
+
+      <% } %>
+      <% } else { %>
 
       <% } %>
       // L.marker([<%=coords[0].long%>, <%=coords[0].lat%> ]).addTo(mymap);

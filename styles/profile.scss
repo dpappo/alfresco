@@ -74,6 +74,28 @@ div.login-buttons {
   }
 }
 
+#fresco {
+  font-family: $logoFont;
+  color: $color1;
+  border-bottom: 5px solid $color5;
+}
+
+#where_go {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  border: 5px solid $color5;
+  border-radius: 20px;
+}
+
+#where_go:hover{
+  text-shadow: 2px 2px $color3;
+  box-shadow: 5px 5px black
+
+}
+
 @keyframes shake {
   10%,
   90% {

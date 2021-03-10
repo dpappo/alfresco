@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-const { addPoint, getMarkersFromDB, getFavoriteMarkers, addFavorite, removeFavorite, getMyMarkers, getLocationById, editPoint, deletePoint } = require('../public/scripts/dbQuery');
+const { addPoint, getMarkersFromDB, getFavoriteMarkers, addFavorite, removeFavorite, getMyMarkers, getLocationById, editPoint, deletePoint, getUserByID } = require('../public/scripts/dbQuery');
 
 
 
@@ -13,7 +13,7 @@ module.exports = (db) => {
 
   router.get("/favorites", async (req, res) => {
     if (req.session.user_id === null) {
-      res.redirect("/login")
+      res.redirect("/login");
     } else {
       const currentUser = req.session.user_id;
       const markers = await getFavoriteMarkers(currentUser);
@@ -23,8 +23,12 @@ module.exports = (db) => {
     }
   });
 
-  router.get("/profile", (req, res) => {
-    res.render('profile');
+  router.get("/profile", async(req, res) => {
+    const ID = req.session.user_id;
+    const userInfo =  await getUserByID(ID);
+    const templateVars = { user: userInfo };
+
+    res.render('profile', templateVars);
   });
 
   router.get("/addpoint", (req, res) => {
@@ -101,15 +105,9 @@ module.exports = (db) => {
     res.redirect("/user/mypoint");
   });
 
-   
 
-  //router.post("/editpoint", (req, res) => {
-  //const point = req.body;
-  //const user = req.session.user_id;
-  //addPoint(point, user);
-  //res.redirect("/my_points");
 
-  //})
+
 
 
 

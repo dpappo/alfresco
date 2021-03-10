@@ -14,6 +14,14 @@ const showAllUsers = function () {
     });
 };
 
+const getUserByID = function(ID) {
+  return db.query(`SELECT name, email
+  FROM users
+  WHERE id = $1`, [ID])
+  .then(res => res.rows[0])
+  .catch(err => console.log('get user by id error'))
+};
+
 
 const checkUserByEmail = function (email) {
   return db.query(`SELECT *
@@ -130,7 +138,9 @@ const deletePoint = function (point, userID) {
 
 
 
-module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, removeFavorite, getMarkersFromDB, getFavoriteMarkers, getMyMarkers, getLocationById, editPoint, deletePoint}
+
+
+module.exports = { showAllUsers, checkUserByEmail, addUser, userLogin, addPoint, addFavorite, removeFavorite, getMarkersFromDB, getFavoriteMarkers, getMyMarkers, getLocationById, editPoint, deletePoint, getUserByID}
 
 
 /*
