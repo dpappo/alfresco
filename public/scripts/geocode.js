@@ -2,16 +2,17 @@
 
 const geocodeToList = function(geocodeResult) {
   let insertString = ""
-  console.log("geocodeResult: ", geocodeResult)
+  //console.log("geocodeResult: ", geocodeResult)
   for (let i = 0; i < geocodeResult.length; i++) {
     insertString += `<li data-lat="${geocodeResult[i].latitude}" 
     data-long="${geocodeResult[i].longitude}" 
     data-title="${geocodeResult[i].name}" 
     data-label="${geocodeResult[i].label}" 
+    
     class="mytarget ${i}">
     
-    ${geocodeResult[i].label}
-
+    ${geocodeResult[i].label} 
+    <button type="button" class="btn btn-success btn-sm">Select</button>
     
     </li>`
   }

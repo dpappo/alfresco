@@ -23,10 +23,12 @@ main {
   text-align: -webkit-center;
 }
 
-div.login-buttons {
-  display: grid;
-  place-items: center;
+div.leaflet-popup-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
+
 
 // div#title{
 //   -webkit-text-stroke-width: thin;

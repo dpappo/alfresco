@@ -9,25 +9,26 @@ $color5: #34FAAA;
 $logoFont: 'Lobster', cursive;
 $mainFont: 'Roboto', sans-serif;
 
-html {
-  height: 100%;
-}
+// html {
+//   height: 100%;
+// }
 
-body {
-  display: flex;
-  flex-direction: column;
-  background-color: $color2;
-  .vsc-initialized {
-    display: block;
-  }
-}
+// body {
+//   display: flex;
+//   height: 100%;
+//   flex-direction: column;
+//   background-color: $color2;
+//   .vsc-initialized {
+//     display: block;
+//   }
+// }
 
 
 #mapid {
-  position: absolute;
-  height: 85.2% !important;
+  position: fixed;
+  height: 100% !important;
   width: 100% !important;
-  margin-top: 6%;
+  // margin-top: 6%;
 }
 
 .listings{
@@ -40,5 +41,7 @@ img.marker-image {
 }
 
 div.leaflet-popup-content {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
