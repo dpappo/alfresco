@@ -24,15 +24,15 @@ With indoor dining closed all around us, we knew we needed a map-based tool to a
 
 ### Search with built in geocoding and autocomplete
 
-Giving users the option to trigger an API call with either location name or address, dynamically displaying the results of their query, and filling in the Add form on click depending on which result they choose. This was built with jQuery and Position Stack API.
+Giving users the option to trigger an API call with either location name or address, dynamically displaying the results of their query, and filling in the Add form on click depending on which result they choose. This was built by [@dpappo](https://github.com/dpappo) with jQuery and Position Stack API.
 
 ### Secure and authenticated user experience
 
-Encrypted and secure user authenticated user routes allow for personalized experience without worry of tampering from malicious users.
+Encrypted and secure user authenticated user routes allow for a personalized experience without the worry of tampering from malicious users.
 
 ### User modifications
 
-The user can dynamically update their existing points, and jQuery and the database work hand in hand to update those points on the map.
+The user can edit their existing points; jQuery will auto-fill the Edit form, before Alfresco updates those points on the database and the user's map.
 
 ## Installation
 
