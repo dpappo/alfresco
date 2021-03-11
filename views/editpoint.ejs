@@ -82,13 +82,14 @@
   <script type="text/javascript" src="/scripts/geocode.js"></script>
 
   <script>
-    $("input#titleinput").val("<%=location.title%>");
-    $("textarea#descriptioninput").val("<%=location.description%>");
-    $("input#addressinput").val("<%=location.address%>");
-    $("input#phoneinput").val("<%=location.phone%>");
-    $("input#image").val("<%=location.image%>");
-    $("input#long").val("<%=location.long%>");
-    $("input#lat").val("<%=location.lat%>");
+    
+    $("input#titleinput").val(`<%-location.title%>`);
+    $("textarea#descriptioninput").val(`<%-(location.description)%>`);
+    $("input#addressinput").val(`<%-(location.address)%>`);
+    $("input#phoneinput").val(`<%-(location.phone)%>`);
+    $("input#image").val(`<%-(location.image)%>`);
+    $("input#long").val(`<%-(location.long)%>`);
+    $("input#lat").val(`<%-(location.lat)%>`);
 
 
 
