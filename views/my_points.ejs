@@ -34,7 +34,7 @@
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: config.MAPBOX
+        accessToken: process.env.config.MAPBOX
       }).addTo(mymap);
 
     mymap.locate({setView: true, maxZoom: 10});
