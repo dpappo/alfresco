@@ -12,8 +12,8 @@ module.exports = (db) => {
   });
 
   router.get("/favorites", async (req, res) => {
-    if (req.session.user_id === null) {
-      res.redirect("/login");
+    if (req.session.user_id === null || req.session.user_id === undefined) {
+      res.render("log_reg");
     } else {
       const currentUser = req.session.user_id;
       const markers = await getFavoriteMarkers(currentUser);
@@ -24,21 +24,29 @@ module.exports = (db) => {
   });
 
   router.get("/profile", async(req, res) => {
+    if(req.session.user_id === null || req.session.user_id === undefined) {
+      res.render("log_reg")
+    } else {
     const ID = req.session.user_id;
     const userInfo =  await getUserByID(ID);
     const templateVars = { user: userInfo, current: "profile" };
 
     res.render('profile', templateVars);
+    }
   });
 
   router.get("/addpoint", (req, res) => {
+    if(req.session.user_id === null || req.session.user_id === undefined) {
+      res.render("log_reg");
+    } else {
     const templateVars = {current: "add"}
     res.render('addpoint', templateVars);
+    }
   });
 
   router.get("/mypoint", async (req, res) => {
-    if (req.session.user_id === null) {
-      res.redirect("/login")
+    if (req.session.user_id === null || req.session.user_id === undefined) {
+      res.render("log_reg")
     } else {
       const currentUser = req.session.user_id;
       const markers = await getMyMarkers(currentUser);

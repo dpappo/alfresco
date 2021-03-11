@@ -68,8 +68,9 @@ const { checkUserByEmail, showAllUsers, addUser, userLogin, addPoint, getMarkers
 
 
 app.get("/", async (req, res) => {
-  if (req.session.user_id === null) {
-    res.redirect("/login")
+  console.log(req.session.user_id);
+  if (req.session.user_id === null || req.session.user_id === undefined) {
+    res.render("log_reg")
   } else {
     console.log(req.session.user_id);
     const markers = await getMarkersFromDB();
