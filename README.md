@@ -6,6 +6,8 @@ Alfresco gives users a map of user-added points, with titles, descriptions, phon
 
 With indoor dining closed all around us, we knew we needed a map-based tool to allow people to share information about their favourite outdoor dining and drinking spots. As students at [Lighthouse Labs](https://www.lighthouselabs.ca/), we took the opportunity to build this project based on a variation of a map-based project option.
 
+[## Check it out!](https://alfresco-map.herokuapp.com/)
+
 ## Screenshots
 
 <p align="center">
