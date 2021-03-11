@@ -28,21 +28,37 @@
     //const mapboxAPI = config.MAPBOX;
     //const positionAPI = config.POSITION;
 
-    var mymap = L.map('mapid')
 
-mymap.setView([53.450903647840356, -95.0495608583211], 5.4)
+ 
+      var mymap = L.map('mapid')
 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  maxZoom: 18,
-  id: 'mapbox/streets-v11',
-  tileSize: 512,
-  zoomOffset: -1,
-  accessToken: "pk.eyJ1IjoiZHBhcHBvIiwiYSI6ImNrbTEwNmI4dzAxeXMyeGp2c2VyajBwa20ifQ.U6SgB3CiYWT8xwZSv0eYsQ"
-}).addTo(mymap);
+      //console.log("first pull of local storage: ", localStorage.getItem('lastPosition')) ;
 
-mymap.locate({setView: true, maxZoom: 10});
+      //localStorage.getItem('lastPosition') ? mymap.setView(localStorage.getItem('lastPosition'), 13) : 
+      
 
+
+      //mymap.setView(localStorage.getItem('lastPosition'), 13)
+      mymap.setView([43.6532, -79.3832], 13)
+
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: "pk.eyJ1IjoiZHBhcHBvIiwiYSI6ImNrbTEwNmI4dzAxeXMyeGp2c2VyajBwa20ifQ.U6SgB3CiYWT8xwZSv0eYsQ"
+      }).addTo(mymap);
+
+      // mymap.on('dragend', function(){
+      //   console.log(localStorage.getItem('lastPosition'))
+        
+      //   //localStorage.setItem('lastPosition', mymap.getCenter());
+      //   //const lastPosition = localStorage.getItem('lastPosition');
+      // })
+
+
+      //mymap.locate({setView: true, maxZoom: 10});
 
 
         <% if(coords !== undefined) { %>

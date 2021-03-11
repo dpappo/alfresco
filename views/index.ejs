@@ -30,7 +30,7 @@
 
       var mymap = L.map('mapid')
 
-      mymap.setView([53.450903647840356, -95.0495608583211], 5.4)
+      mymap.setView([43.6532, -79.3832], 13)
 
       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -44,6 +44,13 @@
       mymap.locate({setView: true, maxZoom: 10});
 
 
+      // $("#mymap").click(function(){
+      //   console.log(mymap.getCenter())
+      // })
+
+      // mymap.on('dragend', function(){
+      //   localStorage.setItem('lastPosition', mymap.getCenter());
+      // })
 
 
     <% if(coords !== undefined) { %>
