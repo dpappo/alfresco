@@ -77,7 +77,6 @@ div.login-buttons {
 #fresco {
   font-family: $logoFont;
   color: $color1;
-  border-bottom: 5px solid $color5;
 }
 
 #where_go {
@@ -86,15 +85,10 @@ div.login-buttons {
   justify-content: center;
   align-items: center;
   padding: 1em;
-  border: 5px solid $color5;
   border-radius: 20px;
+  background-color: #6c757d69;
 }
 
-#where_go:hover{
-  text-shadow: 2px 2px $color3;
-  box-shadow: 5px 5px black
-
-}
 
 @keyframes shake {
   10%,
@@ -116,3 +110,41 @@ div.login-buttons {
   }
 }
 
+#font {
+  font-family: $mainFont;
+}
+
+#font1 {
+  color: $color1; 
+}
+
+
+.typewrite{
+  width: 75%;
+  font-family: $mainFont;
+  color: $color1;
+  font-size: 22px;
+}
+
+.typewrite h5 {
+  overflow: hidden;
+  border-right: .01em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .05em;
+  animation:
+    typing 5.5s steps(60, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 90% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  20% { border-color: $color4; }
+}

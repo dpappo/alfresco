@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
+    <link rel="shortcut icon" type="image/png" href=https://www.flaticon.com/svg/vstatic/svg/615/615486.svg?token=exp=1615429833~hmac=d5d0bf3afa47f76823bb561995222156>
     <link rel="stylesheet" href="/styles/profile.css" type="text/css" />
     <link rel="stylesheet" href="/styles/foot.css" type="text/css" />
     <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
@@ -20,29 +20,29 @@
 <main>
 
   <div class="login-buttons">
-    <h1><%= user.email %></h1>
+    <h2 id = font1><%= user.email %></h2>
     </br>
-    <h2>Hello, <%= user.name %>! </h2>
-    <h2>Where are you thinking of being outside, today?</h2>
-    </br>
+    <h3 id = font >Hello, <%= user.name %>! </h3>
+    <h3 id = font >Where are you thinking of being outside, today?</h3>
     </br>
     <div id= where_go>
-    <h2>At one of your favorite places?</h2>
+    <h3 id = font >At one of your favorite places?</h3>
     </br>
       <a href="/user/favorites"><button id = favmap class="btn btn-primary btn-lg">+ MY FAVORITES MAP</button></a>
     </br>
-    <h2>Or...</h2>
-    <h2>Someplace you've suggested to others?</h2>
+    <h3 id = font >Or...</h3>
+    <h3 id = font >Someplace you've suggested to others?</h3>
     </br>
     <a href="/user/mypoint"><button id = mypts class="btn btn-primary btn-lg">+ MY POINTS</button></a>
   </div>
   </br>
   </br>
-  <h2><i>Alfresco: Italian for a style of dining that is casual and often party-like in its atmosphere...
-    </i>
-  </h2>
-  <h2><i> Take a break, and enjoy some time with friends... </i></h2>
 </br>
+  <div class = typewrite>
+    <h5>Alfresco: Italian for a style of dining that is casual and often party-like in its atmosphere...
+    </h5>
+  </br>
+</div>
   <h1 id= fresco><i>Alfresco. </i></h1>
 </main>
 
