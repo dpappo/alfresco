@@ -7,10 +7,10 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     console.log(req.session.user_id);
-    if(req.session.user_id !== null) {
-      res.redirect("/");
+    if(req.session.user_id === null || req.session.user_id === undefined) {
+      res.render("log_reg");
     } else {
-    res.render('log_reg');
+    res.redirect('/');
     }
   });
 
@@ -42,7 +42,11 @@ module.exports = (db) => {
   });
 
   router.get("/register", (req, res) => {
+    if(req.session.user_id === undefined || req.session.user_id === null) {
     res.render("register");
+    } else {
+      res.redirect("/");
+    }
   });
 
   router.post("/register", async (req, res) => {
