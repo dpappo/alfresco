@@ -21,4 +21,4 @@ INSERT INTO locations (user_id, Description, title, address, phone, image, long,
 VALUES (1, 'Eatery serving Wood-fired Pizza, Pasta & Traditional Italian mains.', 'Piano Piano Restaurant', '88 Harbord St', '416-929-7788', 'https://media.blogto.com/slide-shows/images/e7600f96-4b8e-4abc-9e4e-1e75fabe217b.jpg?quality=70&w=2184',-79.402869, 43.662913);
 
 INSERT INTO locations (user_id, Description, title, address, phone, image, long, lat)
-VALUES (1, 'Classic French plates & old world wines in an unpretentious setting.', 'Le Phenix', '1263 Queen St W', '416-342-1587', 'https://media.blogto.com/slide-shows/images/397579e6-6fc1-4f16-9104-f373ec00c300.jpg?quality=70&w=2184',-79.431138, 43.641708);
+VALUES (1, 'Classic French plates & old world wines in ans unpretentious setting.', 'Le Phenixx', '1263 Queen St Ws', '416-342-15s87', 'https://media.blogto.com/slide-shows/images/397579e6-6fc1-4f16-9104-f373ec00c300.jpg?quality=70&w=2184',-78.431138, 44.641708);
