@@ -42,11 +42,7 @@ module.exports = (db) => {
   });
 
   router.get("/register", (req, res) => {
-    if(req.session.user_id !== null) {
-      res.redirect("/");
-    } else {
     res.render("register");
-    }
   });
 
   router.post("/register", async (req, res) => {
