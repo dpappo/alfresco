@@ -26,7 +26,7 @@ const geocodeToList = function(geocodeResult) {
 
 
 const geocodeAPI = (address, callback) => {
-  const APIKey = config.POSITION;
+  const APIKey = "acecc6c6b153f98979acfc86867bc5a2";
   const query = address;
   const endpoint = `http://api.positionstack.com/v1/forward?access_key=${APIKey}&callback=FUNCTION_NAME&query=${query}&limit=5&country=CA`;
   console.log(endpoint);
