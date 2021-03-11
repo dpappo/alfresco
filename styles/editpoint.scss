@@ -16,12 +16,14 @@ form.geocode {
   margin-bottom: 25%;
   align-self: center;
   font-family: $mainFont;
+
 }
 form {
   width: 90%;
   margin: auto;
   align-self: center;
   font-family: $mainFont;
+  caret-color: $color2;
 }
 
 li {
