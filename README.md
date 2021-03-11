@@ -10,7 +10,7 @@ With indoor dining closed all around us, we knew we needed a map-based tool to a
 
 <p align="center">
   <img src="/images/home.png" alt="home page" />
-  <img src="/images/search.gif" alt="search feature" />
+  <img src="/images/add.gif" alt="search feature" />
   <img src="/images/fav.png" alt="favourites page" />
   <img src="/images/mine.png" alt="my points" />
   <img src="/images/login.png" alt="login page" />
