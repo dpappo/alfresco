@@ -32,13 +32,6 @@
  
       var mymap = L.map('mapid')
 
-      //console.log("first pull of local storage: ", localStorage.getItem('lastPosition')) ;
-
-      //localStorage.getItem('lastPosition') ? mymap.setView(localStorage.getItem('lastPosition'), 13) : 
-      
-
-
-      //mymap.setView(localStorage.getItem('lastPosition'), 13)
       mymap.setView([43.6532, -79.3832], 13)
 
       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
