@@ -1,7 +1,8 @@
 {
-  "name": "node-skeleton",
+  "name": "alfresco",
   "version": "1.0.0",
   "description": "",
+  "engine": {"node": "12.21.0"},
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
